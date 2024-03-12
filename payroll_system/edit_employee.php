@@ -60,8 +60,8 @@ $conn->close();
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            margin: 20px;
+            padding: 10px;
             background-color: #f0f0f0;
         }
         .container {

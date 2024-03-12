@@ -5,8 +5,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            margin: 20px;
+            padding: 10px;
             background-color: #f0f0f0;
         }
         .pay-slip {
@@ -17,12 +17,12 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        h2 {
+        h3 {
             color: #333;
             margin-bottom: 20px;
             text-align: center;
         }
-        p {
+        em {
             margin-bottom: 10px;
         }
         .print-button {
@@ -40,11 +40,17 @@
         button:hover {
             background-color: #45a049;
         }
+        .company-logo {
+            display: flex; /* Make the container a flexbox */
+            justify-content: center; /* Align elements horizontally in the center */
+            align-items: center;
+        }
     </style>
 </head>
 <body>
     <div class="pay-slip">
-        <h2>Pay Slip</h2>
+    <img class="company-logo" src="upload/waras_satwa_logo.png">
+        <h3>Slip Gaji Waras Satwa</h3>
         <?php
         include 'db_connect.php'; // Include database connection
 
@@ -58,27 +64,89 @@
 
             // Calculate total salary
             $total_salary = $row['gaji_pokok'] + $row['bonus_kinerja'] + $row['uang_makan'] + $row['tunjangan'] + $row['pulsa'] + $row['bensin'] + $row['operasi'] + $row['grooming'] + $row['jaga_malam'] + $row['pet_taxi'] + $row['asisten'] + $row['emergency'] + $row['lain_lain'] - $row['cash_bond'] - $row['potongan'];
+            
+            // Calculate total penghasilan
+            $penghasilan = $row['gaji_pokok'] + $row['bonus_kinerja'] + $row['uang_makan'] + $row['tunjangan'] + $row['pulsa'] + $row['bensin'] + $row['operasi'] + $row['grooming'] + $row['jaga_malam'] + $row['pet_taxi'] + $row['asisten'] + $row['emergency'] + $row['lain_lain'];
+
+            // Calculate total potongan
+            $potongan = $row['cash_bond'] - $row['potongan'];
 
             // Generate pay slip
             echo "<p>Nama: " . $row['nama'] . "</p>";
-            echo "<p>Gaji Pokok: RP" . $row['gaji_pokok'] . "</p>";
-            echo "<p>Bonus Kinerja: RP" . $row['bonus_kinerja'] . "</p>";
-            echo "<p>Uang Makan: RP" . $row['uang_makan'] . "</p>";
-            echo "<p>Tunjangan: RP" . $row['tunjangan'] . "</p>";
-            echo "<p>Pulsa: RP" . $row['pulsa'] . "</p>";
-            echo "<p>Bensin: RP" . $row['bensin'] . "</p>";
-            echo "<p>Operasi: RP" . $row['operasi'] . "</p>";
-            echo "<p>Grooming: RP" . $row['grooming'] . "</p>";
-            echo "<p>Jaga Malam: RP" . $row['jaga_malam'] . "</p>";
-            echo "<p>Pet Taxi: RP" . $row['pet_taxi'] . "</p>";
-            echo "<p>Asisten: RP" . $row['asisten'] . "</p>";
-            echo "<p>Emergency: RP" . $row['emergency'] . "</p>";
-            echo "<p>Lain lain: RP" . $row['lain_lain'] . "</p>";
-            echo "<p>Cash Bond: RP" . $row['cash_bond'] . "</p>";
-            echo "<p>Potongan: RP" . $row['potongan'] . "</p>";
+            echo "Tanggal: ";
+            echo date("d-m-Y");
+            echo "<br>__________________________________________________________________<br>";
+            echo "<p style='margin-top: 10px;'>1. Penghasilan";
+            if ($row['gaji_pokok'] == '0') {   
+            } else {
+            echo "<p>Gaji Pokok: RP " . number_format($row['gaji_pokok'], 0) . "</p>";
+            }
+            if ($row['bonus_kinerja'] == '0') {   
+            } else {
+            echo "<p>Bonus Kinerja: RP " . number_format($row['bonus_kinerja'], 0) . "</p>";
+            }
+            if ($row['uang_makan'] == '0') {   
+            } else {
+            echo "<p>Uang Makan: RP " . number_format($row['uang_makan'], 0) . "</p>";
+            }
+            if ($row['tunjangan'] == '0') {   
+            } else {
+            echo "<p>Tunjangan: RP " . number_format($row['tunjangan'], 0) . "</p>";
+            }
+            if ($row['pulsa'] == '0') {   
+            } else {
+            echo "<p>Pulsa: RP " . number_format($row['pulsa'], 0). "</p>";
+            }
+            if ($row['bensin'] == '0') {   
+            } else {
+            echo "<p>Bensin: RP " . number_format($row['bensin'], 0) . "</p>";
+            }
+            if ($row['operasi'] == '0') {   
+            } else {
+            echo "<p>Operasi: RP " . number_format($row['operasi'], 0) . "</p>";
+            }
+            if ($row['grooming'] == '0') {   
+            } else {
+            echo "<p>Grooming: RP " . number_format($row['grooming'], 0) . "</p>";
+            }
+            if ($row['jaga_malam'] == '0') {   
+            } else {
+            echo "<p>Jaga Malam: RP " . number_format($row['jaga_malam'], 0) . "</p>";
+            }
+            if ($row['pet_taxi'] == '0') {   
+            } else {
+            echo "<p>Pet Taxi: RP " . number_format($row['pet_taxi'], 0) . "</p>";
+            }
+            if ($row['asisten'] == '0') {   
+            } else {
+            echo "<p>Asisten: RP " . number_format($row['asisten'], 0) . "</p>";
+            }
+            if ($row['emergency'] == '0') {   
+            } else {
+            echo "<p>Emergency: RP " . number_format($row['emergency'], 0) . "</p>";
+            }
+            if ($row['lain_lain'] == '0') {   
+            } else {
+            echo "<p style='margin-bottom: 20px;'>Lain lain: RP " . number_format($row['lain_lain'], 0) . "</p>";
+            }
+            echo "<strong>TOTAL PENGHASILAN: RP " . number_format($penghasilan, 0) . "</strong>";
+            if ($row['cash_bond'] === '0' && $row['potongan'] === 0) {
+            } else {
+            echo "<p style='margin-top: 20px;'>2. Potongan<br></p>";
+            }
+            if ($row['cash_bond'] == '0') {   
+            } else {
+            echo "<p>Cash Bond: RP " . number_format($row['cash_bond'], 0) . "</p>";
+            }
+            if ($row['potongan'] == '0') {   
+            } else {
+            echo "<p style='margin-bottom: 20px;'>Potongan: RP   " . number_format($row['potongan'], 0) . "</p>";
+            }
+            echo "<strong>TOTAL POTONGAN: RP " . number_format($potongan, 0) . "<br></strong>";
 
             // Similar for other fields
-            echo "<p>Total Salary: RP" . $total_salary . "</p>";
+            echo "<p style='margin-top: 20px; font-weight: bold;'>TOTAL GAJI: RP " . number_format($total_salary, 0) . "</strong>";
+            echo "<p style='text-align: center;'> This is a computer-generated document. No signature is required";
         }
         $conn->close();
         ?>

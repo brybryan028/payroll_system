@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 08, 2024 at 08:20 AM
+-- Generation Time: Mar 12, 2024 at 09:15 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -52,8 +52,9 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`id`, `nama`, `gaji_pokok`, `bonus_kinerja`, `uang_makan`, `tunjangan`, `pulsa`, `bensin`, `operasi`, `grooming`, `jaga_malam`, `pet_taxi`, `asisten`, `emergency`, `lain_lain`, `cash_bond`, `potongan`) VALUES
-(1, 'Danang', 6750000.00, 600000.00, 500000.00, 400000.00, 150000.00, 150000.00, 0.00, 0.00, 0.00, 0.00, 450000.00, 75000.00, 0.00, 100000.00, 0.00),
-(2, 'Sari', 6750000.00, 600000.00, 500000.00, 400000.00, 150000.00, 200000.00, 0.00, 0.00, 0.00, 0.00, 0.00, 150000.00, 700000.00, 226500.00, 0.00);
+(4, 'Danang', 6750000.00, 600000.00, 500000.00, 400000.00, 150000.00, 150000.00, 0.00, 0.00, 0.00, 0.00, 450000.00, 75000.00, 0.00, 100000.00, 0.00),
+(5, 'Sari', 6750000.00, 600000.00, 500000.00, 400000.00, 150000.00, 200000.00, 0.00, 0.00, 0.00, 0.00, 0.00, 150000.00, 700000.00, 226500.00, 0.00),
+(6, 'Annisa', 3000000.00, 400000.00, 400000.00, 0.00, 100000.00, 100000.00, 0.00, 0.00, 0.00, 0.00, 297500.00, 75000.00, 300000.00, 0.00, 0.00);
 
 --
 -- Indexes for dumped tables
@@ -73,7 +74,7 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
