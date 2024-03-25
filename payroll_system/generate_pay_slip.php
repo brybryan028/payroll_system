@@ -45,6 +45,20 @@
             justify-content: center; /* Align elements horizontally in the center */
             align-items: center;
         }
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .flex-item-left {
+            flex-basis: 50%; /* Take up 50% of the space */
+            font-size: 17px;
+        }
+        .flex-item-right {
+            flex-basis: 50%;
+            text-align: right; /* Align text to the right */
+            font-size: 17px;
+        }
         @media print {
             body {
                 margin: 0; /* Remove default margin */
@@ -88,84 +102,140 @@
             // Generate pay slip
             echo '<p>Nama: ' . $row['nama'] . "</p>";
             echo '<p>Tanggal: ';
-            echo date("d-m-Y");
+            echo date("d-m-Y"); }
             ?>
             <hr style="border: 1px solid #ccc; margin: 20px 0;">
-            <?php 
-            echo "<p style='margin-top: 10px; text-decoration: underline;'>1. Penghasilan";
-            if ($row['gaji_pokok'] == '0') {   
-            } else {
-            echo '<p>Gaji Pokok: <span style="display: inline-block; text-align: right;">' . "RP " . number_format($row['gaji_pokok'], 0) . '</span></p>';
-            }
-            if ($row['bonus_kinerja'] == '0') {   
-            } else {
-            echo '<p>Bonus Kinerja: <span style="display: inline-block; text-align: right;">' . "RP " . number_format($row['bonus_kinerja'], 0) . "</p>";
-            }
-            if ($row['uang_makan'] == '0') {   
-            } else {
-            echo '<p>Uang Makan: <span style="display: inline-block; text-align: right;">'. "RP " . number_format($row['uang_makan'], 0) . "</p>";
-            }
-            if ($row['tunjangan'] == '0') {   
-            } else {
-            echo '<p>Tunjangan: <span style="display: inline-block; text-align: right;">' . "RP " . number_format($row['tunjangan'], 0) . "</p>";
-            }
-            if ($row['pulsa'] == '0') {   
-            } else {
-            echo '<p>Pulsa: <span style="display: inline-block; text-align: right;">' . "RP " . number_format($row['pulsa'], 0). "</p>";
-            }
-            if ($row['bensin'] == '0') {   
-            } else {
-            echo '<p>Bensin: <span style="display: inline-block; text-align: right;">' . "RP " . number_format($row['bensin'], 0) . "</p>";
-            }
-            if ($row['operasi'] == '0') {   
-            } else {
-            echo '<p>Operasi: <span style="display: inline-block; text-align: right;">' . "RP " . number_format($row['operasi'], 0) . "</p>";
-            }
-            if ($row['grooming'] == '0') {   
-            } else {
-            echo '<p>Grooming: <span style="display: inline-block; text-align: right;">' . "RP " . number_format($row['grooming'], 0) . "</p>";
-            }
-            if ($row['jaga_malam'] == '0') {   
-            } else {
-            echo '<p>Jaga Malam: <span style="display: inline-block; text-align: right;">' . "RP " . number_format($row['jaga_malam'], 0) . "</p>";
-            }
-            if ($row['pet_taxi'] == '0') {   
-            } else {
-            echo '<p>Pet Taxi: <span style="display: inline-block; text-align: right;">' . "RP " . number_format($row['pet_taxi'], 0) . "</p>";
-            }
-            if ($row['asisten'] == '0') {   
-            } else {
-            echo '<p>Asisten: <span style="display: inline-block; text-align: right;">' . "RP " . number_format($row['asisten'], 0) . "</p>";
-            }
-            if ($row['emergency'] == '0') {   
-            } else {
-            echo '<p>Emergency: <span style="display: inline-block; text-align: right;">' . "RP " . number_format($row['emergency'], 0) . "</p>";
-            }
-            if ($row['lain_lain'] == '0') {   
-            } else {
-            echo '<p style="margin-bottom: 20px;">Lain lain: <span style="display: inline-block; text-align: right;">' . "RP ". number_format($row['lain_lain'], 0) . '</span></p>';
-            }
-            echo '<strong>TOTAL PENGHASILAN: <span style="display: inline-block; text-align: right;">' . "RP " . number_format($penghasilan, 0) . '</span></strong>';
-            if ($row['cash_bond'] === '0' && $row['potongan'] === 0) {
-            } else {
-            echo "<p style='margin-top: 20px; text-decoration: underline;'>2. Potongan<br></p>";
-            }
-            if ($row['cash_bond'] == '0') {   
-            } else {
-            echo '<p>Cash Bond: <span style="display: inline-block; text-align: right;">' . "RP " . number_format($row['cash_bond'], 0) . "</p>";
-            }
-            if ($row['potongan'] == '0') {   
-            } else {
-            echo '<p style="margin-bottom: 20px;">Potongan: <span style="display: inline-block; text-align: right;">' . "RP " . number_format($row['potongan'], 0) . '</span></p>';
-            }
-            echo '<strong>TOTAL POTONGAN: <span style="display: inline-block; text-align: right;">' . "RP " . number_format($potongan, 0) . '</span></strong><br>';
+            <p style='margin-top: 10px; text-decoration: underline; font-weight: bold;'>1. Penghasilan</p>
+            <?php if ($penghasilan == 0) { ?>
+                <p class="flex-item-left"style='margin-bottom: 12px; font-weight: bold; color: red;'>TIDAK ADA PENGHASILAN</p>
+            <?php } ?>
+            <!-- Gaji Pokok -->
+            <?php if ($row['gaji_pokok'] != '0') { ?>
+                <div class="flex-container">
+                    <div class="flex-item-left">Gaji Pokok:</div>
+                    <div class="flex-item-right">Rp <?php echo number_format($row['gaji_pokok'], 0); ?></div>
+                </div>
+            <?php } ?>
+            <!-- Bonus Kinerja -->
+            <?php if ($row['bonus_kinerja'] != '0') { ?>
+                <div class="flex-container">
+                    <div class="flex-item-left">Bonus Kinerja:</div>
+                    <div class="flex-item-right">Rp <?php echo number_format($row['bonus_kinerja'], 0); ?></div>
+                </div>
+            <?php } ?>
+            <!-- Uang Makan -->
+            <?php if ($row['uang_makan'] != '0') { ?>
+                <div class="flex-container">
+                    <div class="flex-item-left">Uang Makan:</div>
+                    <div class="flex-item-right">Rp <?php echo number_format($row['uang_makan'], 0); ?></div>
+                </div>
+            <?php } ?>
+            <!-- Tunjangan -->
+            <?php if ($row['tunjangan'] != '0') { ?>
+                <div class="flex-container">
+                    <div class="flex-item-left">Tunjangan:</div>
+                    <div class="flex-item-right">Rp <?php echo number_format($row['tunjangan'], 0); ?></div>
+                </div>
+            <?php } ?>
+            <!-- Pulsa -->
+            <?php if ($row['pulsa'] != '0') { ?>
+                <div class="flex-container">
+                    <div class="flex-item-left">Pulsa:</div>
+                    <div class="flex-item-right">Rp <?php echo number_format($row['pulsa'], 0); ?></div>
+                </div>
+            <?php } ?>
+            <!-- Bensin -->
+            <?php if ($row['bensin'] != '0') { ?>
+                <div class="flex-container">
+                    <div class="flex-item-left">Bensin:</div>
+                    <div class="flex-item-right">Rp <?php echo number_format($row['bensin'], 0); ?></div>
+                </div>
+            <?php } ?>
+            <!-- Operasi -->
+            <?php if ($row['operasi'] != '0') { ?>
+                <div class="flex-container">
+                    <div class="flex-item-left">Operasi:</div>
+                    <div class="flex-item-right">Rp <?php echo number_format($row['operasi'], 0); ?></div>
+                </div>
+            <?php } ?>
+            <!-- Grooming -->
+            <?php if ($row['grooming'] != '0') { ?>
+                <div class="flex-container">
+                    <div class="flex-item-left">Grooming:</div>
+                    <div class="flex-item-right">Rp <?php echo number_format($row['grooming'], 0); ?></div>
+                </div>
+            <?php } ?>
+            <!-- Jaga Malam -->
+            <?php if ($row['jaga_malam'] != '0') { ?>
+                <div class="flex-container">
+                    <div class="flex-item-left">Jaga Malam:</div>
+                    <div class="flex-item-right">Rp <?php echo number_format($row['jaga_malam'], 0); ?></div>
+                </div>
+            <?php } ?>
+            <!-- Pet Taxi -->
+            <?php if ($row['pet_taxi'] != '0') { ?>
+                <div class="flex-container">
+                    <div class="flex-item-left">Pet Taxi:</div>
+                    <div class="flex-item-right">Rp <?php echo number_format($row['pet_taxi'], 0); ?></div>
+                </div>
+            <?php } ?>
+            <!-- Asisten -->
+            <?php if ($row['asisten'] != '0') { ?>
+                <div class="flex-container">
+                    <div class="flex-item-left">Asisten:</div>
+                    <div class="flex-item-right">Rp <?php echo number_format($row['asisten'], 0); ?></div>
+                </div>
+            <?php } ?>
+            <!-- Emergency -->
+            <?php if ($row['emergency'] != '0') { ?>
+                <div class="flex-container">
+                    <div class="flex-item-left">Emergency:</div>
+                    <div class="flex-item-right">Rp <?php echo number_format($row['emergency'], 0); ?></div>
+                </div>
+            <?php } ?>
+            <!-- Lain-Lain -->
+            <?php if ($row['lain_lain'] != '0') { ?>
+                <div class="flex-container">
+                    <div class="flex-item-left">Lain-lain:</div>
+                    <div class="flex-item-right">Rp <?php echo number_format($row['lain_lain'], 0); ?></div>
+                </div>
+            <?php } ?>
+            <!-- TOTAL PENGHASILAN -->
+                <div class="flex-container">
+                    <div class="flex-item-left" style="font-weight: bold; font-size: 20px;">TOTAL PENGHASILAN:</div>
+                    <div class="flex-item-right" style="font-weight: bold; font-size: 20px;">Rp <?php echo number_format($penghasilan, 0);?></div>
+                </div>
 
-            // Similar for other fields
-            echo '<p style="margin-top: 20px; font-weight: bold;">TOTAL GAJI: <span style="display: inline-block; text-align: right;">' . "RP ". number_format($total_salary, 0) . '</span></p>';
-            echo "<p style='text-align: center;'> This is a computer-generated document. No signature is required";
-        }
-        $conn->close();
-        ?>
+            <p style='margin-top: 10px; text-decoration: underline; font-weight: bold;'>2. Potongan</p>
+            <?php if ($potongan == 0) { ?>
+                <p class="flex-item-left"style='margin-bottom: 12px; font-weight: bold; color: red;'>TIDAK ADA POTONGAN</p>
+            <?php } ?>
+            <!-- Cash Bond -->
+            <?php if ($row['cash_bond'] != '0') { ?>
+                <div class="flex-container">
+                    <div class="flex-item-left">Cash Bond:</div>
+                    <div class="flex-item-right">Rp <?php echo number_format($row['cash_bond'], 0); ?></div>
+                </div>
+            <?php } ?>
+            <!-- Potongan -->
+            <?php if ($row['potongan'] != '0') { ?>
+                <div class="flex-container">
+                    <div class="flex-item-left">Potongan:</div>
+                    <div class="flex-item-right">Rp <?php echo number_format($row['potongan'], 0); ?></div>
+                </div>
+            <?php } ?>
+            <!-- TOTAL POTONGAN -->
+            <div class="flex-container">
+                    <div class="flex-item-left" style="font-weight: bold; font-size: 20px;">TOTAL POTONGAN:</div>
+                    <div class="flex-item-right" style="font-weight: bold; font-size: 20px;">Rp <?php echo number_format($potongan, 0);?></div>
+                </div>
+            <!-- TOTAL GAJI -->
+            <div class="flex-container">
+                    <div class="flex-item-left" style="font-weight: bold; font-size: 20px;">TOTAL GAJI:</div>
+                    <div class="flex-item-right" style="font-weight: bold; font-size: 20px;">Rp <?php echo number_format($total_salary, 0);?></div>
+                </div>
+ 
+            <p style='text-align: center;'> This is a computer-generated document. No signature is required</p>
     </div>
     <div class="print-button">
             <button onclick="window.print()">Print Pay Slip</button>
