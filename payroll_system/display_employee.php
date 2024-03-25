@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['delete_id'])) {
 }
 
 // Fetch all employee records
-$sql = "SELECT * FROM employees";
+$sql = "SELECT * FROM employees";   
 $result = $conn->query($sql);
 
 $conn->close();
@@ -84,6 +84,7 @@ $conn->close();
     </style>
 </head>
 <body>
+<a href="http://localhost/payroll_system/index.php">Dashboard</a> <br>
 <a href="http://localhost/payroll_system/add_employee.php">Add Employee Information</a> <br>
 <a href="http://localhost/payroll_system/display_employee.php">Display Employee Information</a> <br>
     <h2>Employee List</h2>
@@ -116,21 +117,21 @@ $conn->close();
                 <tr>
                     <td><?php echo $row['id']; ?></td>
                     <td><?php echo $row['nama']; ?></td>
-                    <td><?php echo $row['gaji_pokok']; ?></td>
-                    <td><?php echo $row['bonus_kinerja']; ?></td>
-                    <td><?php echo $row['uang_makan']; ?></td>
-                    <td><?php echo $row['tunjangan']; ?></td>
-                    <td><?php echo $row['pulsa']; ?></td>
-                    <td><?php echo $row['bensin']; ?></td>
-                    <td><?php echo $row['operasi']; ?></td>
-                    <td><?php echo $row['grooming']; ?></td>
-                    <td><?php echo $row['jaga_malam']; ?></td>
-                    <td><?php echo $row['pet_taxi']; ?></td>
-                    <td><?php echo $row['asisten']; ?></td>
-                    <td><?php echo $row['emergency']; ?></td>
-                    <td><?php echo $row['lain_lain']; ?></td>
-                    <td><?php echo $row['cash_bond']; ?></td>
-                    <td><?php echo $row['potongan']; ?></td>
+                    <td><?php echo number_format($row['gaji_pokok']); ?></td>
+                    <td><?php echo number_format($row['bonus_kinerja']); ?></td>
+                    <td><?php echo number_format($row['uang_makan']); ?></td>
+                    <td><?php echo number_format($row['tunjangan']); ?></td>
+                    <td><?php echo number_format($row['pulsa']); ?></td>
+                    <td><?php echo number_format($row['bensin']); ?></td>
+                    <td><?php echo number_format($row['operasi']); ?></td>
+                    <td><?php echo number_format($row['grooming']); ?></td>
+                    <td><?php echo number_format($row['jaga_malam']); ?></td>
+                    <td><?php echo number_format($row['pet_taxi']); ?></td>
+                    <td><?php echo number_format($row['asisten']); ?></td>
+                    <td><?php echo number_format($row['emergency']); ?></td>
+                    <td><?php echo number_format($row['lain_lain']); ?></td>
+                    <td><?php echo number_format($row['cash_bond']); ?></td>
+                    <td><?php echo number_format($row['potongan']); ?></td>
                     <td>
                         <a href="edit_employee.php?id=<?php echo $row['id']; ?>">Edit</a> | 
                         <a href="?delete_id=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure you want to delete this employee record?')">Delete</a>
@@ -144,9 +145,10 @@ $conn->close();
         ?>
     </table>
     <h2>Generate Pay Slip</h2>
-    <form action="generate_pay_slip.php" method="post">
-        Employee ID: <input type="number" name="employee_id"><br>
-        <input type="submit" value="Generate Pay Slip">
+    <form action="generate_pay_slip.php" method="post" target="_blank">
+        Employee ID: <input type="number" name="employee_id">
+        
+        <input style="margin-top: 10px;" type="submit" value="Generate Pay Slip">
     </form>
 </body>
 </html>

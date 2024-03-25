@@ -81,17 +81,22 @@ $conn->close();
             background-color: #45a049;
         }
         a {
-            display: block;
+            display: inline-block;
             margin-bottom: 10px;
             color: #007bff;
             text-decoration: none;
+            padding: 5px 10px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
         }
         a:hover {
-            text-decoration: underline;
+            background-color: #007bff;
+            color: #fff;
         }
     </style>
 </head>
 <body>
+<a href="http://localhost/payroll_system/index.php">Dashboard</a> <br>
 <a href="http://localhost/payroll_system/add_employee.php">Add Employee Information</a> <br>
 <a href="http://localhost/payroll_system/display_employee.php">Display Employee Information</a> <br>
 <h2>Add Employee</h2>

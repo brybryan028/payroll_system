@@ -210,4 +210,80 @@ $conn->close();*/
     ?>
 </body>
 </html>*/
-?>
+
+            // Generate pay slip
+            // echo "<p>Nama: " . $row['nama'] . "</p>";
+            // echo "Tanggal: ";
+            // echo date("d-m-Y");
+            // echo "<br>__________________________________________________________________<br>";
+            // echo "<p style='margin-top: 10px;'>1. Penghasilan";
+            // if ($row['gaji_pokok'] == '0') {   
+            // } else {
+            // echo "<p>Gaji Pokok: RP " . number_format($row['gaji_pokok'], 0) . "</p>";
+            // }
+            // if ($row['bonus_kinerja'] == '0') {   
+            // } else {
+            // echo "<p>Bonus Kinerja: RP " . number_format($row['bonus_kinerja'], 0) . "</p>";
+            // }
+            // if ($row['uang_makan'] == '0') {   
+            // } else {
+            // echo "<p>Uang Makan: RP " . number_format($row['uang_makan'], 0) . "</p>";
+            // }
+            // if ($row['tunjangan'] == '0') {   
+            // } else {
+            // echo "<p>Tunjangan: RP " . number_format($row['tunjangan'], 0) . "</p>";
+            // }
+            // if ($row['pulsa'] == '0') {   
+            // } else {
+            // echo "<p>Pulsa: RP " . number_format($row['pulsa'], 0). "</p>";
+            // }
+            // if ($row['bensin'] == '0') {   
+            // } else {
+            // echo "<p>Bensin: RP " . number_format($row['bensin'], 0) . "</p>";
+            // }
+            // if ($row['operasi'] == '0') {   
+            // } else {
+            // echo "<p>Operasi: RP " . number_format($row['operasi'], 0) . "</p>";
+            // }
+            // if ($row['grooming'] == '0') {   
+            // } else {
+            // echo "<p>Grooming: RP " . number_format($row['grooming'], 0) . "</p>";
+            // }
+            // if ($row['jaga_malam'] == '0') {   
+            // } else {
+            // echo "<p>Jaga Malam: RP " . number_format($row['jaga_malam'], 0) . "</p>";
+            // }
+            // if ($row['pet_taxi'] == '0') {   
+            // } else {
+            // echo "<p>Pet Taxi: RP " . number_format($row['pet_taxi'], 0) . "</p>";
+            // }
+            // if ($row['asisten'] == '0') {   
+            // } else {
+            // echo "<p>Asisten: RP " . number_format($row['asisten'], 0) . "</p>";
+            // }
+            // if ($row['emergency'] == '0') {   
+            // } else {
+            // echo "<p>Emergency: RP " . number_format($row['emergency'], 0) . "</p>";
+            // }
+            // if ($row['lain_lain'] == '0') {   
+            // } else {
+            // echo "<p style='margin-bottom: 20px;'>Lain lain: RP " . number_format($row['lain_lain'], 0) . "</p>";
+            // }
+            // echo "<strong>TOTAL PENGHASILAN: RP " . number_format($penghasilan, 0) . "</strong>";
+            // if ($row['cash_bond'] === '0' && $row['potongan'] === 0) {
+            // } else {
+            // echo "<p style='margin-top: 20px;'>2. Potongan<br></p>";
+            // }
+            // if ($row['cash_bond'] == '0') {   
+            // } else {
+            // echo "<p>Cash Bond: RP " . number_format($row['cash_bond'], 0) . "</p>";
+            // }
+            // if ($row['potongan'] == '0') {   
+            // } else {
+            // echo "<p style='margin-bottom: 20px;'>Potongan: RP   " . number_format($row['potongan'], 0) . "</p>";
+            // }
+            // echo "<strong>TOTAL POTONGAN: RP " . number_format($potongan, 0) . "<br></strong>";
+
+            // // Similar for other fields
+            // echo "<p style='margin-top: 20px; font-weight: bold;'>TOTAL GAJI: RP " . number_format($total_salary, 0) . "</strong>";
+            // echo "<p style='text-align: center;'> This is a computer-generated document. No signature is required";

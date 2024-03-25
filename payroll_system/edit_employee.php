@@ -111,21 +111,21 @@ $conn->close();
             <form action="edit_employee.php" method="post">
                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                 Nama: <input type="text" name="nama" value="<?php echo $row['nama']; ?>"><br>
-                Gaji Pokok: <input type="text" name="gaji_pokok" value="<?php echo $row['gaji_pokok']; ?>"><br>
-                Bonus Kinerja: <input type="text" name="bonus_kinerja" value="<?php echo $row['bonus_kinerja']; ?>"><br>
-                Uang Makan: <input type="text" name="uang_makan" value="<?php echo $row['uang_makan']; ?>"><br>
-                Tunjangan: <input type="text" name="tunjangan" value="<?php echo $row['tunjangan']; ?>"><br>
-                Pulsa: <input type="text" name="pulsa" value="<?php echo $row['pulsa']; ?>"><br>
-                Bensin: <input type="text" name="bensin" value="<?php echo $row['bensin']; ?>"><br>
-                Operasi: <input type="text" name="operasi" value="<?php echo $row['operasi']; ?>"><br>
-                Grooming: <input type="text" name="grooming" value="<?php echo $row['grooming']; ?>"><br>
-                Jaga Malam: <input type="text" name="jaga_malam" value="<?php echo $row['jaga_malam']; ?>"><br>
-                Pet Taxi: <input type="text" name="pet_taxi" value="<?php echo $row['pet_taxi']; ?>"><br>
-                Asisten: <input type="text" name="asisten" value="<?php echo $row['asisten']; ?>"><br>
-                Emergency: <input type="text" name="emergency" value="<?php echo $row['emergency']; ?>"><br>
-                Lain lain: <input type="text" name="lain_lain" value="<?php echo $row['lain_lain']; ?>"><br>
-                Cash Bond: <input type="text" name="cash_bond" value="<?php echo $row['cash_bond']; ?>"><br>
-                Potongan: <input type="text" name="potongan" value="<?php echo $row['potongan']; ?>"><br>
+                Gaji Pokok: <input type="text" name="gaji_pokok" value="<?php echo number_format($row['gaji_pokok']); ?>"><br>
+                Bonus Kinerja: <input type="text" name="bonus_kinerja" value="<?php echo number_format($row['bonus_kinerja']); ?>"><br>
+                Uang Makan: <input type="text" name="uang_makan" value="<?php echo number_format($row['uang_makan']); ?>"><br>
+                Tunjangan: <input type="text" name="tunjangan" value="<?php echo number_format($row['tunjangan']); ?>"><br>
+                Pulsa: <input type="text" name="pulsa" value="<?php echo number_format($row['pulsa']); ?>"><br>
+                Bensin: <input type="text" name="bensin" value="<?php echo number_format($row['bensin']); ?>"><br>
+                Operasi: <input type="text" name="operasi" value="<?php echo number_format($row['operasi']); ?>"><br>
+                Grooming: <input type="text" name="grooming" value="<?php echo number_format($row['grooming']); ?>"><br>
+                Jaga Malam: <input type="text" name="jaga_malam" value="<?php echo number_format($row['jaga_malam']); ?>"><br>
+                Pet Taxi: <input type="text" name="pet_taxi" value="<?php echo number_format($row['pet_taxi']); ?>"><br>
+                Asisten: <input type="text" name="asisten" value="<?php echo number_format($row['asisten']); ?>"><br>
+                Emergency: <input type="text" name="emergency" value="<?php echo number_format($row['emergency']); ?>"><br>
+                Lain lain: <input type="text" name="lain_lain" value="<?php echo number_format($row['lain_lain']); ?>"><br>
+                Cash Bond: <input type="text" name="cash_bond" value="<?php echo number_format($row['cash_bond']); ?>"><br>
+                Potongan: <input type="text" name="potongan" value="<?php echo number_format($row['potongan']); ?>"><br>
                 <!-- Add fields for other allowances -->
                 <input type="submit" value="Update Information">
             </form>
