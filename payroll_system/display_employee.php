@@ -25,6 +25,7 @@ $conn->close();
 <html>
 <head>
     <title>Employee List</title>
+    <link rel="icon" type="image/png" href="upload/logo.png">
     <style>
         body {
             font-family: Arial, sans-serif;

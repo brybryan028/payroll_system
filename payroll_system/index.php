@@ -27,6 +27,7 @@ a:hover {
     background-color: #2980b9;
 }
     </style>
+    <link rel="icon" type="image/png" href="upload/logo.png">
 </head>
 <body>
     <a href="http://localhost/payroll_system/add_employee.php">Add Employee Information</a>
